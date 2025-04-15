@@ -13,10 +13,19 @@ def main():
     koka = pg.image.load("fig/3.png")
     koka = pg.transform.flip(koka,True,False) #画像反転
     bg_img_han = pg.transform.flip(bg_img,True,False)
+
+    koka_r = koka.get_rect() #rect抽出
+    koka_r.center = 300, 200 #中心座標
+
     tmr = 0
+
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
+
+        key = pg.key.get_pressed()
+        if key[pg.K_UP]:
+            koka_r.move_ip(0,-1)
 
         tmr += 1
         x = -(tmr % 3200)
@@ -24,7 +33,7 @@ def main():
         screen.blit(bg_img, [x, -50]) #背景画貼付
         screen.blit(bg_img_han, [x + 1600, -50])
         screen.blit(bg_img, [x + 3200, -50])
-        screen.blit(koka, [300, 200])
+        screen.blit(koka, koka_r)
         
         pg.display.update()     
         clock.tick(200) #fps
