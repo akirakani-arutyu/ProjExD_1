@@ -19,6 +19,7 @@ def main():
             if event.type == pg.QUIT: return
 
         screen.blit(bg_img, [x, -50]) #背景画貼付
+        screen.blit(bg_img_han, [x+1600, -50])
         screen.blit(koka, [300, 200])
         
         pg.display.update()     
@@ -26,8 +27,8 @@ def main():
 
         x = x - 1
 
-        if x == -:
-            screen.blit(bg_img_han, [x, 0])
+        #if x == -800:
+        #    screen.blit(bg_img_han, [x+1600, 0])
 
 
 if __name__ == "__main__":
