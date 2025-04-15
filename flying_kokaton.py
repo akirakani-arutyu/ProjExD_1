@@ -24,19 +24,21 @@ def main():
 
         tmr += 1
         x = -(tmr % 3200)
-        y = -tmr
+        b=0
+        a=0
 
         key = pg.key.get_pressed()
         if key[pg.K_UP]:
-            koka_r.move_ip(0,-1)
+            b = -1
         if key[pg.K_DOWN]:
-            koka_r.move_ip(0,1)
+            b = 1
         if key[pg.K_RIGHT]:
-            koka_r.move_ip(1,0)
+            a = 3
         if key[pg.K_LEFT]:
-            koka_r.move_ip(-1,0)
+            a = -1
         if key[pg.K_LEFT] == False:
-            koka_r.move_ip(y-200,0)
+            a -= 1
+        koka_r.move_ip((a,b))
 
         screen.blit(bg_img, [x, -50]) #背景画貼付
         screen.blit(bg_img_han, [x + 1600, -50])
